@@ -198,7 +198,7 @@ HTML_TEMPLATE = """
 <body>
     <div class="layout">
         <div class="sidebar">
-            <div class="header-title">RINKHALS OS</div>
+            <div class="header-title">RINKHALS TIMELAPSE</div>
             <div class="card">
                 <div class="status-header"><span>Status</span><span id="status-text">● STANDBY</span></div>
                 <div class="img-container"><img id="cam-img" src="/last_snap" class="preview-img"></div>
@@ -273,7 +273,7 @@ HTML_TEMPLATE = """
         function closeVid() { document.getElementById('modal').style.display='none'; document.getElementById('player').pause(); }
     </script>
 <div style="text-align: center; padding: 20px; font-size: 10px; color: #64748b;">
-        Rinkhals OS v1.0 | Created by aenima1337</strong> | 
+        Rinkhals Timelapse v1.0 | Created by aenima1337</strong> | 
         <a href="https://github.com/aenima1337/Rinkhals-Timelapse" target="_blank" style="color: #64748b;">GitHub</a>
     </div>
 </body>
