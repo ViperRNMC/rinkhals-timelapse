@@ -1,8 +1,3 @@
-# Rinkhals-Timelapse
-Absolut! Eine gut lesbare `README.md` ist das A und O für jedes Open-Source-Projekt. Sie ist die Visitenkarte deines Projekts. Ich habe zwei Versionen erstellt – eine für jede Sprache, die du einfach in eine separate `.md`-Datei kopieren kannst.
-
----
-
 Deutsch
 
 ```markdown
