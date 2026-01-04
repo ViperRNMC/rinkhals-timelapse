@@ -14,6 +14,7 @@ Rinkhals-Timelapse is a lightweight Docker-based tool that automatically creates
 * **Stable Web Interface:** Provides real-time status updates and image previews without layout shifts or flickering.
 * **Multi-Architecture Support:** Compatible with both PC (x86_64) and Raspberry Pi (ARM64).
 * **Manual Render:** Option to manually trigger video generation from existing snapshots if a print is interrupted.
+* **Zero Printer Load:** All processing happens on your Docker host (Pi/PC). No stress for the printer MCU.
 
 ## Setup with Docker Compose
 
