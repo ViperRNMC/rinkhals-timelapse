@@ -6,8 +6,8 @@ Korte beschrijving
 - Deze repository bevat een Home Assistant add-on in `addon/` die Ingress ondersteunt.
 
 Credits
-- Deze project is een fork/bewerking van het origineel gemaakt door aenima1337: https://github.com/aenima1337/Rinkhals-Timelapse
-- Verder verwijzen de installatie-instructies naar jouw fork/repository (gebruik jouw GitHub-repo-URL bij installatie via Supervisor).
+-- Deze project is een fork/bewerking van het origineel gemaakt door aenima1337: https://github.com/aenima1337/Rinkhals-Timelapse
+-- Gebruik voor installatie en releases deze repository: https://github.com/ViperRNMC/rinkhals-timelapse
 
 Standaard instellingen
 - Default `media_path`: `/media/timelapse` (aanpasbaar via add-on opties)
@@ -79,7 +79,7 @@ Rinkhals-Timelapse is a lightweight Docker-based tool that automatically creates
 ```yaml
 services:
   rinkhals-timelapse:
-    image: ghcr.io/aenima1337/rinkhals-timelapse:latest
+    image: ghcr.io/ViperRNMC/rinkhals-timelapse:latest
     container_name: rinkhals-timelapse
     restart: unless-stopped
     network_mode: host
@@ -108,6 +108,6 @@ The application communicates with the Moonraker API to track print progress.
 
 ## License and Credits
 
-* **Author:** aenima1337
+* **Author:** ViperRNMC
 * **License:** MIT
 * **Acknowledgments:** Special thanks to jbatonnet for the Rinkhals project.

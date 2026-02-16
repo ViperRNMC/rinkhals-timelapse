@@ -1,8 +1,8 @@
 """
 Rinkhals Timelapse - Automatic Timelapse creator for Rinkhals based Anycubic 3D Printer
-Created by: aenima1337
+Fork / maintained by: ViperRNMC (https://github.com/ViperRNMC/rinkhals-timelapse)
 License: MIT
-Description: Automatically detects print status via Moonraker API and 
+Description: Automatically detects print status via Moonraker API and
 calculates ideal intervals for perfect 15s timelapses.
 """
 
@@ -287,8 +287,8 @@ HTML_TEMPLATE = """
         function closeVid() { document.getElementById('modal').style.display='none'; document.getElementById('player').pause(); }
     </script>
 <div style="text-align: center; padding: 20px; font-size: 10px; color: #64748b;">
-        Rinkhals Timelapse v1.0 | Created by aenima1337</strong> | 
-        <a href="https://github.com/aenima1337/Rinkhals-Timelapse" target="_blank" style="color: #64748b;">GitHub</a>
+        Rinkhals Timelapse v1.0 | Fork/maintained by ViperRNMC</strong> | 
+        <a href="https://github.com/ViperRNMC/rinkhals-timelapse" target="_blank" style="color: #64748b;">GitHub</a>
     </div>
 </body>
 </html>
