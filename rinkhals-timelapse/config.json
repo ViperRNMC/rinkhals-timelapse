@@ -2,7 +2,7 @@
   "name": "Rinkhals Timelapse",
   "icon": "mdi:printer-3d",
   "version": "1.0.0",
-  "slug": "rinkhals_timelapse",
+  "slug": "rinkhals-timelapse",
   "description": "Timelapse creator for Rinkhals-based Anycubic 3D printers",
   "arch": ["amd64", "armv7", "armhf", "aarch64"],
   "startup": "services",
