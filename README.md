@@ -1,3 +1,54 @@
+Rinkhals Timelapse — Home Assistant Add-on
+=========================================
+
+Korte beschrijving
+- Rinkhals Timelapse maakt automatisch timelapses van je Anycubic (Rinkhals) 3D-printer via Moonraker/webcam.
+- Deze repository bevat een Home Assistant add-on in `addon/` die Ingress ondersteunt.
+
+Standaard instellingen
+- Default `media_path`: `/media/timelapse` (aanpasbaar via add-on opties)
+- Default `printer_ip`: `10.10.10.99` (pas aan in add-on configuratie)
+
+Wat is toegevoegd
+- `addon/config.json` — Home Assistant add-on manifest met `ingress: true` en opties `printer_ip` + `media_path`.
+- `addon/Dockerfile` — buildfile voor de add-on image (gebruikt de code in `app/`).
+- Aanpassingen in `app/app.py` zodat `PRINTER_IP`, `MEDIA_PATH` en `CONFIG_FILE` via environment-variabelen ingesteld kunnen worden.
+
+Installatie-opties
+
+Optie A — (Aanbevolen voor HA) Publiceer deze repo op GitHub en voeg als custom repository in Supervisor:
+1. Push deze repository naar GitHub.
+2. In Home Assistant: Supervisor → Add-on Store → Drie puntjes → Repositories → Voeg je GitHub repo URL toe.
+3. Zoek de add-on `Rinkhals Timelapse` en installeer.
+4. Geef bij installatie/opties `printer_ip` en `media_path` (`/media/timelapse`).
+5. Start de add-on en klik op "Open Web UI" (Ingress). De app draait via Ingress in een sideview.
+
+Optie B — Lokale test met Docker (snel testen buiten Supervisor):
+```bash
+# bouw image
+docker build -t rinkhals-timelapse-addon ./addon
+
+# run (mount voor persistente media/config)
+docker run --rm -p 5005:5005 \
+  -v "$(pwd)/data":/media/timelapse \
+  -e PRINTER_IP=10.10.10.99 \
+  -e MEDIA_PATH=/media/timelapse \
+  rinkhals-timelapse-addon
+```
+Open in je browser: `http://localhost:5005` (niet via Ingress, dit is voor testing).
+
+Opmerkingen en tips
+- Gebruik `/media/timelapse` als media map als je wilt dat Home Assistant's Media Browser de video's kan vinden.
+- Zorg dat de map permissies heeft voor de gebruiker in de container (Supervisor regelt dit meestal bij `media` mapping).
+- Ingress gebruikt poort 5005 intern; geen externe poort nodig als je Ingress activeert.
+- Als je de add-on direct installeert via Supervisor, stel `media_path` in op `/media/timelapse` en `printer_ip` op het IP van je printer.
+
+Probleemoplossing
+- Als de add-on de webcam niet kan bereiken: controleer `printer_ip` en of de webcam URL (`http://PRINTER_IP/webcam/?action=snapshot`) bereikbaar is vanaf het host.
+- Als ffmpeg ontbreekt of render faalt: controleer container logs; `addon/Dockerfile` installeert `ffmpeg`.
+
+Volgende stap (voor jou)
+- Als je wilt dat ik nu push naar je remote, geef akkoord (ik probeer te committen en te pushen vanuit deze workspace). Als push faalt door credentials, zal ik de foutmelding tonen en uitleggen hoe te fixen.
 # Rinkhals-Timelapse
 
 **Important Requirement:** This tool requires a printer running [Rinkhals by jbatonnet](https://github.com/jbatonnet/Rinkhals) to function on Anycubic devices. A huge thank you to the creator of Rinkhals for making Klipper accessible on these machines.

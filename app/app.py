@@ -11,10 +11,19 @@ from flask import Flask, render_template_string, send_from_directory, request, r
 from collections import deque
 
 app = Flask(__name__)
-CONFIG_FILE = "config.json"
-SNAPSHOT_DIR = "snapshots"
-VIDEO_DIR = "videos"
-THUMB_DIR = "videos/thumbs"
+# Support overriding paths and printer IP via environment (useful for Home Assistant add-on)
+CONFIG_FILE = os.environ.get("CONFIG_FILE", "config.json")
+ENV_PRINTER = os.environ.get("PRINTER_IP")
+MEDIA_PATH = os.environ.get("MEDIA_PATH", "").strip()
+
+if MEDIA_PATH:
+    SNAPSHOT_DIR = os.path.join(MEDIA_PATH, "snapshots")
+    VIDEO_DIR = os.path.join(MEDIA_PATH, "videos")
+    THUMB_DIR = os.path.join(VIDEO_DIR, "thumbs")
+else:
+    SNAPSHOT_DIR = "snapshots"
+    VIDEO_DIR = "videos"
+    THUMB_DIR = "videos/thumbs"
 
 for d in [SNAPSHOT_DIR, VIDEO_DIR, THUMB_DIR]: 
     os.makedirs(d, exist_ok=True)
@@ -27,6 +36,11 @@ def load_config():
     return defaults
 
 config = load_config()
+# Apply environment overrides if present
+if ENV_PRINTER:
+    config['printer_ip'] = ENV_PRINTER
+if MEDIA_PATH:
+    config['media_path'] = MEDIA_PATH
 LOG_STACK = deque(maxlen=10)
 
 is_printing = False

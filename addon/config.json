@@ -1,0 +1,27 @@
+{
+  "name": "Rinkhals Timelapse",
+  "icon": "mdi:printer-3d",
+  "version": "1.0.0",
+  "slug": "rinkhals_timelapse",
+  "description": "Timelapse creator for Rinkhals-based Anycubic 3D printers",
+  "arch": ["amd64", "armv7", "armhf", "aarch64"],
+  "startup": "services",
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 0,
+  "ports": {},
+  "map": ["config:rw", "media:rw"],
+  "options": {
+    "printer_ip": "10.10.10.99",
+    "media_path": "/media/timelapse"
+  },
+  "schema": {
+    "printer_ip": "str",
+    "media_path": "str"
+  },
+  "environment": {
+    "PRINTER_IP": "{{ printer_ip }}",
+    "MEDIA_PATH": "{{ media_path }}",
+    "CONFIG_FILE": "{{ media_path }}/config.json"
+  }
+}
