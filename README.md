@@ -5,6 +5,10 @@ Korte beschrijving
 - Rinkhals Timelapse maakt automatisch timelapses van je Anycubic (Rinkhals) 3D-printer via Moonraker/webcam.
 - Deze repository bevat een Home Assistant add-on in `addon/` die Ingress ondersteunt.
 
+Credits
+- Deze project is een fork/bewerking van het origineel gemaakt door aenima1337: https://github.com/aenima1337/Rinkhals-Timelapse
+- Verder verwijzen de installatie-instructies naar jouw fork/repository (gebruik jouw GitHub-repo-URL bij installatie via Supervisor).
+
 Standaard instellingen
 - Default `media_path`: `/media/timelapse` (aanpasbaar via add-on opties)
 - Default `printer_ip`: `10.10.10.99` (pas aan in add-on configuratie)
@@ -16,9 +20,9 @@ Wat is toegevoegd
 
 Installatie-opties
 
-Optie A — (Aanbevolen voor HA) Publiceer deze repo op GitHub en voeg als custom repository in Supervisor:
-1. Push deze repository naar GitHub.
-2. In Home Assistant: Supervisor → Add-on Store → Drie puntjes → Repositories → Voeg je GitHub repo URL toe.
+Optie A — (Aanbevolen voor HA) Gebruik jouw fork van deze repository als custom add-on repository:
+1. Zorg dat deze repository (jouw fork) op GitHub staat.
+2. In Home Assistant: Supervisor → Add-on Store → Drie puntjes → Repositories → Voeg je GitHub repo URL (jouw fork) toe.
 3. Zoek de add-on `Rinkhals Timelapse` en installeer.
 4. Geef bij installatie/opties `printer_ip` en `media_path` (`/media/timelapse`).
 5. Start de add-on en klik op "Open Web UI" (Ingress). De app draait via Ingress in een sideview.
